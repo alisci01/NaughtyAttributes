@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
+
 using UnityEditor;
 using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
@@ -16,65 +17,63 @@ namespace NaughtyAttributes.Editor
 
 		private static GUIStyle _buttonStyle = new GUIStyle(GUI.skin.button) { richText = true };
 
-		private delegate void PropertyFieldFunction(Rect rect, SerializedProperty property, GUIContent label, bool includeChildren);
+		private delegate void PropertyFieldFunction(Rect rect, NaughtyProperty naughtyProperty, GUIContent label, bool includeChildren);
 
-		public static void PropertyField(Rect rect, SerializedProperty property, bool includeChildren)
+		public static void PropertyField(Rect rect, NaughtyProperty naughtyProperty, bool includeChildren)
 		{
-			PropertyField_Implementation(rect, property, includeChildren, DrawPropertyField);
+			PropertyField_Implementation(rect, naughtyProperty, includeChildren, DrawPropertyField);
 		}
 
-		public static void PropertyField_Layout(SerializedProperty property, bool includeChildren)
+		public static void PropertyField_Layout(NaughtyProperty naughtyProperty, bool includeChildren)
 		{
 			Rect dummyRect = new Rect();
-			PropertyField_Implementation(dummyRect, property, includeChildren, DrawPropertyField_Layout);
+			PropertyField_Implementation(dummyRect, naughtyProperty, includeChildren, DrawPropertyField_Layout);
 		}
 
-		private static void DrawPropertyField(Rect rect, SerializedProperty property, GUIContent label, bool includeChildren)
+		private static void DrawPropertyField(Rect rect, NaughtyProperty naughtyProperty, GUIContent label, bool includeChildren)
 		{
-			EditorGUI.PropertyField(rect, property, label, includeChildren);
+			EditorGUI.PropertyField(rect, naughtyProperty.serializedProperty, label, includeChildren);
 		}
 
-		private static void DrawPropertyField_Layout(Rect rect, SerializedProperty property, GUIContent label, bool includeChildren)
+		private static void DrawPropertyField_Layout(Rect rect, NaughtyProperty naughtyProperty, GUIContent label, bool includeChildren)
 		{
-			EditorGUILayout.PropertyField(property, label, includeChildren);
+			EditorGUILayout.PropertyField(naughtyProperty.serializedProperty, label, includeChildren);
 		}
 
-		private static void PropertyField_Implementation(Rect rect, SerializedProperty property, bool includeChildren, PropertyFieldFunction propertyFieldFunction)
+		private static void PropertyField_Implementation(Rect rect, NaughtyProperty naughtyProperty, bool includeChildren, PropertyFieldFunction propertyFieldFunction)
 		{
-			SpecialCaseDrawerAttribute specialCaseAttribute = PropertyUtility.GetAttribute<SpecialCaseDrawerAttribute>(property);
-			if (specialCaseAttribute != null)
+			if (naughtyProperty.specialCaseDrawerAttribute != null)
 			{
-				specialCaseAttribute.GetDrawer().OnGUI(rect, property);
+				naughtyProperty.specialCaseDrawerAttribute.GetDrawer().OnGUI(rect, naughtyProperty.serializedProperty);
 			}
 			else
 			{
 				// Check if visible
-				bool visible = PropertyUtility.IsVisible(property);
+				bool visible = PropertyUtility.IsVisible(naughtyProperty.showIfAttribute, naughtyProperty.serializedProperty);
 				if (!visible)
 				{
 					return;
 				}
-
+				
 				// Validate
-				ValidatorAttribute[] validatorAttributes = PropertyUtility.GetAttributes<ValidatorAttribute>(property);
-				foreach (var validatorAttribute in validatorAttributes)
+				foreach (var validatorAttribute in naughtyProperty.validatorAttributes)
 				{
-					validatorAttribute.GetValidator().ValidateProperty(property);
+					validatorAttribute.GetValidator().ValidateProperty(naughtyProperty.serializedProperty);
 				}
-
+				
 				// Check if enabled and draw
 				EditorGUI.BeginChangeCheck();
-				bool enabled = PropertyUtility.IsEnabled(property);
-
+				bool enabled = PropertyUtility.IsEnabled(naughtyProperty.readOnlyAttribute, naughtyProperty.enableIfAttribute, naughtyProperty.serializedProperty);
+				
 				using (new EditorGUI.DisabledScope(disabled: !enabled))
 				{
-					propertyFieldFunction.Invoke(rect, property, PropertyUtility.GetLabel(property), includeChildren);
+					propertyFieldFunction.Invoke(rect, naughtyProperty, PropertyUtility.GetLabel(naughtyProperty.serializedProperty), includeChildren);
 				}
-
+				
 				// Call OnValueChanged callbacks
 				if (EditorGUI.EndChangeCheck())
 				{
-					PropertyUtility.CallOnValueChangedCallbacks(property);
+					PropertyUtility.CallOnValueChangedCallbacks(naughtyProperty.serializedProperty);
 				}
 			}
 		}
