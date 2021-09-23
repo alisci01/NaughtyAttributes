@@ -12,15 +12,15 @@ namespace NaughtyAttributes.Editor
 	public class NaughtyInspector : UnityEditor.Editor
 	{
 		protected List<NaughtyProperty> _serializedProperties = new List<NaughtyProperty>();
-		protected List<FieldInfo> _nonSerializedFields;
-		protected List<PropertyInfo> _nativeProperties;
-		protected List<MethodInfo> _methods;
+		protected List<FieldInfo> _nonSerializedFields = new List<FieldInfo>();
+		protected List<PropertyInfo> _nativeProperties = new List<PropertyInfo>();
+		protected List<MethodInfo> _methods = new List<MethodInfo>();
 
-		protected List<NaughtyProperty> _nonGroupedSerializedProperty;
+		protected List<NaughtyProperty> _nonGroupedSerializedProperty = new List<NaughtyProperty>();
 		protected SerializedProperty m_ScriptProperty;
 
-		protected List<IGrouping<string, NaughtyProperty>> _groupedSerialzedProperty;
-		protected List<IGrouping<string, NaughtyProperty>> _foldoutGroupedSerializedProperty;
+		protected List<IGrouping<string, NaughtyProperty>> _groupedSerialzedProperty = new List<IGrouping<string, NaughtyProperty>>();
+		protected List<IGrouping<string, NaughtyProperty>> _foldoutGroupedSerializedProperty = new List<IGrouping<string, NaughtyProperty>>();
 		
 		private Dictionary<string, SavedBool> _foldouts = new Dictionary<string, SavedBool>();
 
