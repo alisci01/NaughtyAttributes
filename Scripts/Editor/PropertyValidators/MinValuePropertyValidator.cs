@@ -5,14 +5,12 @@ namespace NaughtyAttributes.Editor
 {
 	public class MinValuePropertyValidator : PropertyValidatorBase
 	{
-		private MinValueAttribute _cachedMinValueAttribute;
-		
-		public override void ValidateProperty(SerializedProperty property)
+		public override void ValidateProperty(SerializedProperty property, ValidatorAttribute attribute)
 		{
-			if (_cachedMinValueAttribute == null)
-				_cachedMinValueAttribute = PropertyUtility.GetAttribute<MinValueAttribute>(property);
+			if (attribute == null)
+				attribute = PropertyUtility.GetAttribute<MinValueAttribute>(property);
 			
-			MinValueAttribute minValueAttribute = _cachedMinValueAttribute;
+			MinValueAttribute minValueAttribute = (MinValueAttribute)attribute;
 
 			if (property.propertyType == SerializedPropertyType.Integer)
 			{

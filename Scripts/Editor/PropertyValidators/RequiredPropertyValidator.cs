@@ -4,14 +4,12 @@ namespace NaughtyAttributes.Editor
 {
 	public class RequiredPropertyValidator : PropertyValidatorBase
 	{
-		private RequiredAttribute _cachedRequiredAttribute;
-		
-		public override void ValidateProperty(SerializedProperty property)
+		public override void ValidateProperty(SerializedProperty property, ValidatorAttribute attribute)
 		{
-			if (_cachedRequiredAttribute == null)
-				_cachedRequiredAttribute = PropertyUtility.GetAttribute<RequiredAttribute>(property);
+			if (attribute == null)
+				attribute = PropertyUtility.GetAttribute<RequiredAttribute>(property);
 			
-			RequiredAttribute requiredAttribute = _cachedRequiredAttribute;
+			RequiredAttribute requiredAttribute = (RequiredAttribute)attribute;
 
 			if (property.propertyType == SerializedPropertyType.ObjectReference)
 			{

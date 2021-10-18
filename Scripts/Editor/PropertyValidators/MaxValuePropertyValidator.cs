@@ -5,14 +5,12 @@ namespace NaughtyAttributes.Editor
 {
 	public class MaxValuePropertyValidator : PropertyValidatorBase
 	{
-		private MaxValueAttribute _cachedMaxValueAttribute;
-		
-		public override void ValidateProperty(SerializedProperty property)
+		public override void ValidateProperty(SerializedProperty property, ValidatorAttribute attribute)
 		{
-			if (_cachedMaxValueAttribute == null)
-				_cachedMaxValueAttribute = PropertyUtility.GetAttribute<MaxValueAttribute>(property);
+			if (attribute == null)
+				attribute = PropertyUtility.GetAttribute<MaxValueAttribute>(property);
 			
-			MaxValueAttribute maxValueAttribute = _cachedMaxValueAttribute;
+			MaxValueAttribute maxValueAttribute = (MaxValueAttribute)attribute;
 
 			if (property.propertyType == SerializedPropertyType.Integer)
 			{

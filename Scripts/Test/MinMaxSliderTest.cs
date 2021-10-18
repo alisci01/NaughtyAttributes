@@ -7,6 +7,9 @@ namespace NaughtyAttributes.Test
 		[MinMaxSlider(0.0f, 1.0f)]
 		public Vector2 minMaxSlider0 = new Vector2(0.25f, 0.75f);
 
+		[MinMaxSlider(10, 78f)]
+		public Vector2 minMaxSlider1 = new Vector2(25f, 75f);
+		
 		public MinMaxSliderNest1 nest1;
 	}
 
