@@ -4,8 +4,18 @@ namespace NaughtyAttributes.Test
 {
 	public class RequiredTest : MonoBehaviour
 	{
-		[Required]
+		[Required("Required A")]
 		public Transform trans0;
+		
+		[Required("Required B")]
+		public Transform trans1;
+		
+		[Required]
+		public Transform trans2;
+		
+		[Required]
+		public Transform trans3;
+
 
 		public RequiredNest1 nest1;
 	}

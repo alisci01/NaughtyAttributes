@@ -59,7 +59,7 @@ namespace NaughtyAttributes.Editor
 				// Validate
 				foreach (var validatorAttribute in naughtyProperty.validatorAttributes)
 				{
-					validatorAttribute.GetValidator().ValidateProperty(naughtyProperty.serializedProperty);
+					validatorAttribute.GetValidator().ValidateProperty(naughtyProperty.serializedProperty, validatorAttribute);
 				}
 				
 				// Check if enabled and draw

@@ -408,6 +408,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trans0: {fileID: 0}
+  trans1: {fileID: 0}
+  trans2: {fileID: 0}
+  trans3: {fileID: 0}
   nest1:
     trans1: {fileID: 0}
     nest2:
@@ -508,7 +511,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd67fbde6acdd6a44944f12e507067c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minMaxSlider0: {x: 0.10512249, y: 0.5}
+  minMaxSlider0: {x: 0.19350076, y: 0.51767564}
+  minMaxSlider1: {x: 24.694649, y: 61.773766}
   nest1:
     minMaxSlider1: {x: 0.25, y: 0.5771715}
     nest2:
@@ -1255,8 +1259,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator0: {fileID: 1178133862}
   animatorController0: {fileID: 9100000, guid: 63ee86efd213bf34285c95f33e79dc6c, type: 2}
+  animatorController1: {fileID: 9100000, guid: ebea55bb1a3152444a06d43a3a60911e, type: 2}
   hash0: -392453409
   name0: Float0
+  hash1: -803428449
+  name1: Bool1A
   hashController0: 726565755
   nameController0: Trigger1
   nest1:
@@ -2459,20 +2466,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0.33377442
+      outSlope: 0.33377442
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6424399
+      value: 0.21443
+      inSlope: 1.2654018
+      outSlope: 1.2654018
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 2.1970294
+      outSlope: 2.1970294
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

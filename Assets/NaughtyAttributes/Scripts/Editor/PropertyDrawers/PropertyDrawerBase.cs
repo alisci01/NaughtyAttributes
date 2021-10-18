@@ -20,7 +20,7 @@ namespace NaughtyAttributes.Editor
 			ValidatorAttribute[] validatorAttributes = PropertyUtility.GetAttributes<ValidatorAttribute>(property);
 			foreach (var validatorAttribute in validatorAttributes)
 			{
-				validatorAttribute.GetValidator().ValidateProperty(property);
+				validatorAttribute.GetValidator().ValidateProperty(property, validatorAttribute);
 			}
 
 			// Check if enabled and draw

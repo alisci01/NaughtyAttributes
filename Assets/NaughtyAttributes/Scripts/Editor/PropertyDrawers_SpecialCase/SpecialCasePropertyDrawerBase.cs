@@ -22,7 +22,7 @@ namespace NaughtyAttributes.Editor
 			ValidatorAttribute[] validatorAttributes = naughtyProperty.validatorAttributes;
 			foreach (var validatorAttribute in validatorAttributes)
 			{
-				validatorAttribute.GetValidator().ValidateProperty(naughtyProperty.serializedProperty);
+				validatorAttribute.GetValidator().ValidateProperty(naughtyProperty.serializedProperty, validatorAttribute);
 			}
 
 			// Check if enabled and draw

@@ -8,12 +8,18 @@ namespace NaughtyAttributes.Test
 
 #if UNITY_EDITOR
 		public UnityEditor.Animations.AnimatorController animatorController0;
+		public UnityEditor.Animations.AnimatorController animatorController1;
 #endif
 
 		[AnimatorParam("animator0")]
 		public int hash0;
 		[AnimatorParam("animator0")]
 		public string name0;
+		
+		[AnimatorParam("animatorController1")]
+		public int hash1;
+		[AnimatorParam("animatorController1")]
+		public string name1;
 		
 		[AnimatorParam("animatorController0")]
 		public int hashController0;
