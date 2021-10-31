@@ -123,8 +123,9 @@ namespace NaughtyAttributes.Editor
 
 			int newIndex = EditorGUI.Popup(rect, label, selectedValueIndex, displayOptions);
 			object newValue = values[newIndex];
-
-			if (!dropdownField.GetValue(target).Equals(newValue))
+			object oldValue = dropdownField.GetValue(target);
+			
+			if ((newValue != null && oldValue == null) || !oldValue.Equals(newValue))
 			{
 				Undo.RecordObject(serializedObject.targetObject, "Dropdown");
 
