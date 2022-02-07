@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -105,19 +106,28 @@ namespace NaughtyAttributes.Editor
 			outSerializedProperties.Clear();
 			outSerializedProperties.TrimExcess();
 			
-			using (var iterator = serializedObject.GetIterator())
+			SerializedProperty iterator;
+			try
 			{
-				if (iterator.NextVisible(true))
-				{
-					do
-					{
-						outSerializedProperties.Add(
-							PropertyUtility.CreateNaughtyProperty(
-								serializedObject.FindProperty(iterator.name)));
-					}
-					while (iterator.NextVisible(false));
-				}
+				iterator = serializedObject.GetIterator();
 			}
+			catch
+			{
+				//ignored
+				return;
+			}
+
+			if (iterator.NextVisible(true))
+			{
+				do
+				{
+					outSerializedProperties.Add(
+						PropertyUtility.CreateNaughtyProperty(
+							serializedObject.FindProperty(iterator.name)));
+				} while (iterator.NextVisible(false));
+			}
+			
+			iterator.Dispose();
 		}
 
 		protected virtual void DrawSerializedProperties()
