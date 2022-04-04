@@ -109,9 +109,7 @@ namespace NaughtyAttributes.Editor
 						};
 
 						EditorGUI.PropertyField(propertyRect, property, label, false);
-
-						property.serializedObject.ApplyModifiedProperties();
-
+						
 						// Draw the child properties
 						if (property.isExpanded)
 						{
@@ -126,6 +124,7 @@ namespace NaughtyAttributes.Editor
 				}
 			}
 
+			property.serializedObject.ApplyModifiedProperties();
 			EditorGUI.EndProperty();
 		}
 		
@@ -150,6 +149,7 @@ namespace NaughtyAttributes.Editor
 			using (new EditorGUI.IndentLevelScope())
 			{
 				SerializedObject serializedObject = new SerializedObject(scriptableObject);
+				serializedObject.Update();
 
 				using (var iterator = serializedObject.GetIterator())
 				{
@@ -179,9 +179,7 @@ namespace NaughtyAttributes.Editor
 								width = rect.width,
 								height = childHeight
 							};
-
-							//TODO since the depth can go deeper we cant just use one field. - need better caching and mapping here!
-							//_naughtyProperty ??= PropertyUtility.CreateNaughtyProperty(childProperty);
+							
 							NaughtyEditorGUI.PropertyField(childRect, PropertyUtility.CreateNaughtyProperty(childProperty), true);
 
 							yOffset += childHeight;

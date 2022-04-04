@@ -44,36 +44,36 @@ namespace NaughtyAttributes.Editor
 			return changeDetected;
 		}
 
-		public float GetPropertyHeight(SerializedProperty property)
-		{
-			return GetPropertyHeight_Internal(property);
-		}
+        public float GetPropertyHeight(SerializedProperty property)
+        {
+            return GetPropertyHeight_Internal(property);
+        }
 
-		protected abstract void OnGUI_Internal(Rect rect, SerializedProperty property, GUIContent label);
-		protected abstract float GetPropertyHeight_Internal(SerializedProperty property);
-	}
+        protected abstract void OnGUI_Internal(Rect rect, SerializedProperty property, GUIContent label);
+        protected abstract float GetPropertyHeight_Internal(SerializedProperty property);
+    }
 
-	public static class SpecialCaseDrawerAttributeExtensions
-	{
-		private static Dictionary<Type, SpecialCasePropertyDrawerBase> _drawersByAttributeType;
+    public static class SpecialCaseDrawerAttributeExtensions
+    {
+        private static Dictionary<Type, SpecialCasePropertyDrawerBase> _drawersByAttributeType;
 
-		static SpecialCaseDrawerAttributeExtensions()
-		{
-			_drawersByAttributeType = new Dictionary<Type, SpecialCasePropertyDrawerBase>();
-			_drawersByAttributeType[typeof(ReorderableListAttribute)] = ReorderableListPropertyDrawer.Instance;
-		}
+        static SpecialCaseDrawerAttributeExtensions()
+        {
+            _drawersByAttributeType = new Dictionary<Type, SpecialCasePropertyDrawerBase>();
+            _drawersByAttributeType[typeof(ReorderableListAttribute)] = ReorderableListPropertyDrawer.Instance;
+        }
 
-		public static SpecialCasePropertyDrawerBase GetDrawer(this SpecialCaseDrawerAttribute attr)
-		{
-			SpecialCasePropertyDrawerBase drawer;
-			if (_drawersByAttributeType.TryGetValue(attr.GetType(), out drawer))
-			{
-				return drawer;
-			}
-			else
-			{
-				return null;
-			}
-		}
-	}
+        public static SpecialCasePropertyDrawerBase GetDrawer(this SpecialCaseDrawerAttribute attr)
+        {
+            SpecialCasePropertyDrawerBase drawer;
+            if (_drawersByAttributeType.TryGetValue(attr.GetType(), out drawer))
+            {
+                return drawer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
 }
