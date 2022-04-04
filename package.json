@@ -1,7 +1,7 @@
 {
   "name": "com.niggo1243.naughtyattributes",
   "displayName": "NaughtyAttributesPerfFork",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "unity": "2018.4",
   "description": "NaughtyAttributes is an extension for the Unity Inspector. This is a fork by Nikodem Grzonkowski with fixed performance issues of the original project (NaughtyAttributes by Denis Rizov).",
   "keywords": [ "attribute", "inspector", "editor" ],
