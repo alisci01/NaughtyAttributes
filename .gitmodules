@@ -1,0 +1,4 @@
+[submodule "Assets/NaughtyAttributesModule"]
+	path = Assets/NaughtyAttributesModule
+	url = https://github.com/niggo1243/NaughtyAttributes.git
+	branch = upm
