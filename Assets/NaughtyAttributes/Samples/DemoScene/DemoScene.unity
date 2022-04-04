@@ -546,7 +546,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148579784}
-  m_RootOrder: 33
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &645779702
 MonoBehaviour:
@@ -1261,10 +1261,10 @@ MonoBehaviour:
   animator0: {fileID: 1178133862}
   animatorController0: {fileID: 9100000, guid: 63ee86efd213bf34285c95f33e79dc6c, type: 2}
   animatorController1: {fileID: 9100000, guid: ebea55bb1a3152444a06d43a3a60911e, type: 2}
-  hash0: -392453409
+  hash0: -1617128887
   name0: Float0
-  hash1: -803428449
-  name1: Bool1A
+  hash1: 0
+  name1: 
   hashController0: 726565755
   nameController0: Trigger1
   nest1:
@@ -1686,7 +1686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148579784}
-  m_RootOrder: 32
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524906390
 GameObject:
@@ -1986,9 +1986,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerNumber0: 0
-  layerName0: Default
+  layerName0: SortingLayer2
   nest1:
-    layerNumber1: 0
+    layerNumber1: 146379811
     layerName1: Default
     nest2:
       layerNumber2: 0
@@ -2205,7 +2205,9 @@ MonoBehaviour:
   - Int: 2
     Float: 2
     Vector: {x: 2, y: 2, z: 2}
-  gameObjectsList: [{fileID: 0}, {fileID: 0}]
+  gameObjectsList:
+  - {fileID: 0}
+  - {fileID: 0}
   transformsList: []
   monoBehavioursList: []
 --- !u!1 &1784643784
@@ -2443,7 +2445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b592f12a9f69ac3408f6f870762232c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myInt: 0
+  myInt: 2
 --- !u!1 &2082563172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,122 +2489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6587b100d001e7e46b9aaae7f1180b40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curves:
-  - serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  - serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  - serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  - serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  - serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
+  curves: []
   curve:
     serializedVersion: 2
     m_Curve:

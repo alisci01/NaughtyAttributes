@@ -25,8 +25,7 @@ namespace NaughtyAttributes.Editor
 			
 			AnimatorParamAttribute animatorParamAttribute = _cachedAnimatorParamAttribute;
 
-			if (_cachedAnimatorController == null)
-				_cachedAnimatorController = GetAnimatorController(property, animatorParamAttribute.AnimatorName);
+			_cachedAnimatorController = GetAnimatorController(property, animatorParamAttribute.AnimatorName);
 			
 			bool validAnimatorController = _cachedAnimatorController != null;
 			
