@@ -32,14 +32,18 @@ namespace NaughtyAttributes.Editor
 			if (_cachedCurveRangeAttribute == null)
 				_cachedCurveRangeAttribute = PropertyUtility.GetAttribute<CurveRangeAttribute>(property);
 			
-			var attribute = _cachedCurveRangeAttribute;
+			var curveRanges = new Rect(
+				_cachedCurveRangeAttribute.Min.x,
+				_cachedCurveRangeAttribute.Min.y,
+				_cachedCurveRangeAttribute.Max.x - _cachedCurveRangeAttribute.Min.x,
+				_cachedCurveRangeAttribute.Max.y - _cachedCurveRangeAttribute.Min.y);
 
-			EditorGUI.CurveField(
-				rect, 
-				property,
-				attribute.Color == EColor.Clear ? Color.green : attribute.Color.GetColor(),
-				new Rect(attribute.Min.x, attribute.Min.y, attribute.Max.x - attribute.Min.x, attribute.Max.y - attribute.Min.y),
-				label);
+            EditorGUI.CurveField(
+                rect,
+                property,
+                _cachedCurveRangeAttribute.Color == EColor.Clear ? Color.green : _cachedCurveRangeAttribute.Color.GetColor(),
+                curveRanges,
+                label);
 
 			EditorGUI.EndProperty();
 		}

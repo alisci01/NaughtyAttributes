@@ -7,7 +7,7 @@ namespace NaughtyAttributes.Test
 	public class _NaughtyScriptableObject : ScriptableObject
 	{
 		[Expandable]
-		public List<_TestScriptableObject> list;
+		public List<_TestScriptableObjectA> list;
 
 #if UNITY_EDITOR
 		public UnityEditor.Animations.AnimatorController animatorController0;
